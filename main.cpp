@@ -7,8 +7,11 @@ int main(int argc, char* args[])
 	SDL_Event e;
 
 	labe.setTexture(lake.getTexture());
-	labe.rect.x = 40 * 4;
-	labe.rect.y = 40 * 5;
+	labe.rect.x = 40 * 4 * mul;
+	labe.rect.y = 40 * 5 * mul;
+
+	int defX = labe.rect.x;
+	int defY = labe.rect.y;
 
 	mainMap.setRenderer(mainWindow.getRenderer());
 	mainMap.setTileTextures("maps");
@@ -23,8 +26,8 @@ int main(int argc, char* args[])
 
 	SDL_RenderPresent(mainWindow.getRenderer());
 
-	screen.h = 400;
-	screen.w = 400;
+	screen.h = 400 * mul;
+	screen.w = 400 * mul;
 
 	while (!quit)
 	{
@@ -81,7 +84,7 @@ int main(int argc, char* args[])
 				hair.setTexture(hair2.getTexture());
 			}
 
-			if (keyHandler.isPressed(SDLK_1))
+			if (keyHandler.isPressed(SDLK_3))
 			{
 				hair.setTexture(hair3.getTexture());
 			}
@@ -94,6 +97,8 @@ int main(int argc, char* args[])
 
 		hair.rect.x = labe.rect.x;
 		hair.rect.y = labe.rect.y;
+
+		mainMap.setCamXY((labe.rect.x - defX) * -1, (labe.rect.y - defY) * -1);
 
 		SDL_RenderClear(mainWindow.getRenderer());
 
