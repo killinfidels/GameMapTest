@@ -5,3 +5,4 @@ File stuff:
 https://www.youtube.com/watch?v=lzxWNtjii8U
 http://www.cplusplus.com/doc/tutorial/files/
 http://www.fredosaurus.com/notes-cpp/io/readtextfile.html
+https://www.geeksforgeeks.org/converting-strings-numbers-cc/
