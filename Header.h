@@ -15,17 +15,22 @@ SDL_Rect camera =
 
 WindowM mainWindow("gamemap tests", camera.w, camera.h);
 
-GameMap mainMap(10, 10, 100 * mul, 100 * mul);
+GameMap mainMap(10, 10, 32 * mul, 32 * mul);
+GameMap shrubberyandthelikes(10, 10, 32 * mul, 32 * mul);
 
 SDL_Rect mapSize =
 {
 	mapSize.x = 0,
 	mapSize.y = 0,
-	mapSize.w = 100 * 10 * mul,
-	mapSize.h = 100 * 10 * mul
+	mapSize.w = 32 * 32 * mul,
+	mapSize.h = 32 * 32 * mul
 };
 
+CollisionObjects rocks("collision", "maps/beach/beach.xml", 2 * mul);
+
 Texture lake("player/lake.jpeg", &mainWindow);
+
+Texture help("maps/old/0old.png", &mainWindow);
 
 Texture hair1("player/hair1.png", &mainWindow);
 Texture hair2("player/hair2.png", &mainWindow);

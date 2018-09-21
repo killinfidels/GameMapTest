@@ -10,17 +10,29 @@ int main(int argc, char* args[])
 	labe.rect.x = 300 * mul;
 	labe.rect.y = 200 * mul;
 
+	for (int i = 0; i < rocks.objAmount; i++)
+	{
+		rocks.collisObject[i].setRenderer(mainWindow.getRenderer());
+		rocks.collisObject[i].setTexture(help.getTexture());
+	}
+
 	int defX = labe.rect.x;
 	int defY = labe.rect.y;
 	labe.dontSlowDown = false;
 
 	mainMap.setRenderer(mainWindow.getRenderer());
+	shrubberyandthelikes.setRenderer(mainWindow.getRenderer());
 	//mainMap.setTileTextures("maps");
 	mainMap.setTilesTexture("maps/beach/tileset");
-	mainMap.setTileMap(map);
+	shrubberyandthelikes.setTilesTexture("maps/beach/tileset");
+	//mainMap.setTileMap(map);
+	mainMap.setMapFromFile("background", "maps/beach/beach.xml");
+	shrubberyandthelikes.setMapFromFile("foreground", "maps/beach/beach.xml");
 	mainMap.createMap();
+	shrubberyandthelikes.createMap();
 
 	bool pressed;
+	bool seeColish = false;
 	float speed = 1 * mul;
 	labe.setMaxSpeed(2.5 * mul);
 	//labe.setMaxSpeed(10000000000000000);
@@ -52,6 +64,12 @@ int main(int argc, char* args[])
 				labe.rect.x = 300 * mul;
 				labe.rect.y = 200 * mul;
 			}
+
+			if (keyHandler.isPressed(SDLK_c))
+				seeColish = true;
+
+			if (keyHandler.isPressed(SDLK_b))
+				seeColish = false;
 
 			if (keyHandler.isPressed(SDLK_w))
 			{
@@ -98,30 +116,25 @@ int main(int argc, char* args[])
 			}
 
 			if (keyHandler.isPressed(SDLK_1))
-			{
 				hair.setTexture(hair1.getTexture());
-			}
 
 			if (keyHandler.isPressed(SDLK_2))
-			{
 				hair.setTexture(hair2.getTexture());
-			}
 
 			if (keyHandler.isPressed(SDLK_3))
-			{
 				hair.setTexture(hair3.getTexture());
-			}
 
 			if (keyHandler.isPressed(SDLK_4))
-			{
 				hair.clearTexture();
-			}
 		}
 		
 
 		labe.updateMovement();
 
-		labe.collision(mapSize, true);
+		//labe.collision(mapSize, true);
+
+		for (int i = 0; i < rocks.objAmount; i++)
+			labe.collision(rocks.collisObject[i].rect, false);
 
 		hair.rect.x = labe.rect.x;
 		hair.rect.y = labe.rect.y;
@@ -137,6 +150,14 @@ int main(int argc, char* args[])
 		SDL_RenderClear(mainWindow.getRenderer());
 
 		mainMap.drawMap(camera);
+
+		if (seeColish)
+		{
+			for (int i = 0; i < rocks.objAmount; i++)
+				rocks.collisObject[i].draw(camera);
+		}
+
+		shrubberyandthelikes.drawMap(camera);
 
 		if (pressed)
 			legsObject.draw(camera);
