@@ -1,25 +1,46 @@
 #pragma once
 #include <header-files/gameEngine.h>
 
-int mul = 2;
+float mul = 1.5;
 
 bool dddddd = init();
 
-WindowM mainWindow("gamemap tests", 400 * mul, 400 * mul);
+SDL_Rect camera = 
+{
+	camera.x = 0,
+	camera.y = 0,
+	camera.w = 400 * mul,
+	camera.h = 400 * mul
+};
 
-GameMap mainMap(10, 10, 40 * mul, 40 * mul);
+WindowM mainWindow("gamemap tests", camera.w, camera.h);
 
-Texture lake("maps/lake.jpeg", &mainWindow);
+GameMap mainMap(10, 10, 100 * mul, 100 * mul);
 
-Texture hair1("maps/hair1.png", &mainWindow);
-Texture hair2("maps/hair2.png", &mainWindow);
-Texture hair3("maps/hair3.png", &mainWindow);
+SDL_Rect mapSize =
+{
+	mapSize.x = 0,
+	mapSize.y = 0,
+	mapSize.w = 100 * 10 * mul,
+	mapSize.h = 100 * 10 * mul
+};
+
+Texture lake("player/lake.jpeg", &mainWindow);
+
+Texture hair1("player/hair1.png", &mainWindow);
+Texture hair2("player/hair2.png", &mainWindow);
+Texture hair3("player/hair3.png", &mainWindow);
 
 Object labe(80 * mul, 50 * mul, &mainWindow);
 
 Object hair(80 * mul, 50 * mul, &mainWindow);
 
-SDL_Rect screen;
+Object legsObject(80 * mul, 50 * mul, &mainWindow);
+
+Animation legsAnimL("LEGS", "legs/L", &mainWindow);
+Animation legsAnimR("LEGS", "legs/R", &mainWindow);
+Animation legsAnimU("LEGS", "legs/U", &mainWindow);
+Animation legsAnimD("LEGS", "legs/D", &mainWindow);
 
 KeyboardHandler keyHandler;
 

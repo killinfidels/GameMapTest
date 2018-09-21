@@ -1,8 +1,0 @@
-How to use Tiled: https://gamedevelopment.tutsplus.com/tutorials/introduction-to-tiled-map-editor-a-platform-agnostic-tool-for-level-maps--gamedev-2838
-How to read Tiled files for game: https://gamedevelopment.tutsplus.com/tutorials/parsing-and-rendering-tiled-tmx-format-maps-in-your-own-game-engine--gamedev-3104
-Tiled manual objects: http://docs.mapeditor.org/en/stable/manual/objects/
-File stuff:
-https://www.youtube.com/watch?v=lzxWNtjii8U
-http://www.cplusplus.com/doc/tutorial/files/
-http://www.fredosaurus.com/notes-cpp/io/readtextfile.html
-https://www.geeksforgeeks.org/converting-strings-numbers-cc/
