@@ -1,7 +1,7 @@
 #pragma once
 #include <header-files/gameEngine.h>
 
-float mul = 1.5;
+float mul = 2;
 
 bool dddddd = init();
 
