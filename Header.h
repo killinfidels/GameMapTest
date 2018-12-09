@@ -5,6 +5,15 @@ float mul = 2;
 
 bool dddddd = init();
 
+//The music that will be played
+Mix_Music *gMusic = Mix_LoadMUS("21_sound_effects_and_music/beat.wav");
+
+//The sound effects that will be used
+Mix_Chunk *gScratch = Mix_LoadWAV("21_sound_effects_and_music/scratch.wav");
+Mix_Chunk *gHigh = Mix_LoadWAV("21_sound_effects_and_music/high.wav");
+Mix_Chunk *gMedium = Mix_LoadWAV("21_sound_effects_and_music/medium.wav");
+Mix_Chunk *gLow = Mix_LoadWAV("21_sound_effects_and_music/low.wav");
+
 SDL_Rect camera = 
 {
 	camera.x = 0,
@@ -40,12 +49,16 @@ Object labe(80 * mul, 50 * mul, &mainWindow);
 
 Object hair(80 * mul, 50 * mul, &mainWindow);
 
+Object MOVEMENTTEST(10, 10, &mainWindow);
+
 Object legsObject(80 * mul, 50 * mul, &mainWindow);
+Object gunObject(70 * mul, 70 * mul, &mainWindow);
 
 Animation legsAnimL("LEGS", "legs/L", &mainWindow);
 Animation legsAnimR("LEGS", "legs/R", &mainWindow);
 Animation legsAnimU("LEGS", "legs/U", &mainWindow);
 Animation legsAnimD("LEGS", "legs/D", &mainWindow);
+Animation gunAnim("GUN", "gun/", &mainWindow);
 
 KeyboardHandler keyHandler;
 
